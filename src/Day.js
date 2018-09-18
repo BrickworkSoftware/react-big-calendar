@@ -9,18 +9,14 @@ import localizer from './localizer'
 class Day extends React.Component {
   static propTypes = {
     date: PropTypes.instanceOf(Date).isRequired,
+    min: PropTypes.instanceOf(Date),
   }
 
   render() {
-    let { date, ...props } = this.props
+    let { date, min, ...props } = this.props
+    let range = Day.range(min || date)
 
-    return (
-      <TimeGrid
-        {...props}
-        range={[dates.startOf(date, 'day')]}
-        eventOffset={10}
-      />
-    )
+    return <TimeGrid {...props} min={min} range={range} eventOffset={10} />
   }
 }
 

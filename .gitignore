@@ -3,6 +3,7 @@ lib/
 # Logs
 logs
 *.log
+*.orig
 
 # Runtime data
 pids
